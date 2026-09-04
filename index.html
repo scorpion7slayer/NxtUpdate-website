@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NxtUpdate - universal package updater for macOS</title>
+    <meta
+      name="description"
+      content="NxtUpdate detects Homebrew, npm, pip, Cargo, and macOS system updates, then updates them in one command."
+    >
+    <meta name="theme-color" content="#22272e">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link
+      href="https://fonts.bunny.net/css?family=ibm-plex-mono:400,500,600|ibm-plex-sans:400,500"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="desk">
+      <div class="window">
+        <header class="chrome">
+          <div class="traffic" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <p class="chrome-title">nxtupdate - bash - 80x24</p>
+          <nav class="nav" aria-label="Site">
+            <a href="index.html" aria-current="page">home</a>
+            <a href="docs.html">docs</a>
+            <a href="https://www.npmjs.com/package/nxtupdate" target="_blank" rel="noopener noreferrer">npm</a>
+            <a href="https://github.com/scorpion7slayer/NxtUpdate" target="_blank" rel="noopener noreferrer">github</a>
+          </nav>
+        </header>
+
+        <main class="term" id="main-content">
+          <section class="block" aria-labelledby="hero-cmd">
+            <p class="line" id="hero-cmd">
+              <span class="prompt">user@macos</span>
+              <span class="sep">:</span>
+              <span class="cwd">~</span>
+              <span class="dollar">$</span>
+              <span class="cmd">nxtupdate</span>
+            </p>
+            <h1>NxtUpdate</h1>
+            <p class="lede">
+              One command finds Homebrew, npm, pip, Cargo, and macOS, then
+              updates them.
+            </p>
+          </section>
+
+          <section class="block" id="install" aria-labelledby="install-title">
+            <h2 id="install-title">Install</h2>
+            <p class="note">
+              macOS only. Runtime required:
+              <a href="https://bun.sh">Bun 1.0+</a>.
+            </p>
+
+            <div class="cmd-row">
+              <p class="line">
+                <span class="prompt">user@macos</span>
+                <span class="sep">:</span>
+                <span class="cwd">~</span>
+                <span class="dollar">$</span>
+                <code id="install-npm">npm install -g nxtupdate</code>
+              </p>
+              <button
+                type="button"
+                class="copy"
+                data-copy="npm install -g nxtupdate"
+                aria-label="Copy npm install command"
+              >
+                copy
+              </button>
+            </div>
+
+            <div class="cmd-row">
+              <p class="line">
+                <span class="prompt">user@macos</span>
+                <span class="sep">:</span>
+                <span class="cwd">~</span>
+                <span class="dollar">$</span>
+                <code id="install-bun">bun add -g nxtupdate</code>
+              </p>
+              <button
+                type="button"
+                class="copy"
+                data-copy="bun add -g nxtupdate"
+                aria-label="Copy Bun install command"
+              >
+                copy
+              </button>
+            </div>
+
+            <p class="links">
+              <a href="https://www.npmjs.com/package/nxtupdate" target="_blank" rel="noopener noreferrer">npmjs.com/package/nxtupdate</a>
+              <a href="https://github.com/scorpion7slayer/NxtUpdate" target="_blank" rel="noopener noreferrer">github.com/scorpion7slayer/NxtUpdate</a>
+              <a href="docs.html">Commands, flags, and managers</a>
+            </p>
+            <p class="sr-only" id="copy-status" aria-live="polite"></p>
+          </section>
+
+          <footer class="foot">
+            <p>
+              MIT, scorpion7slayer.
+              <a href="https://github.com/scorpion7slayer/NxtUpdate" target="_blank" rel="noopener noreferrer">github</a>
+              ·
+              <a href="https://www.npmjs.com/package/nxtupdate" target="_blank" rel="noopener noreferrer">npm</a>
+            </p>
+          </footer>
+        </main>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
