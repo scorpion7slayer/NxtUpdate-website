@@ -1,0 +1,44 @@
+---
+title: Installation
+description: Install Bun and NxtUpdate globally on macOS.
+---
+
+## Requirements
+
+- macOS
+- [Bun](https://bun.sh) version 1.0 or later
+
+Install Bun if it is not already available:
+
+```sh
+curl -fsSL https://bun.sh/install | bash
+```
+
+Open a new terminal after the installation so your updated `PATH` is loaded.
+
+## Install with Bun
+
+```sh
+bun add -g nxtupdate
+```
+
+## Install from npm
+
+```sh
+npm install -g nxtupdate
+```
+
+The npm package still uses Bun as its runtime, so Bun must be installed for
+either method.
+
+## Verify the installation
+
+```sh
+nxtupdate --version
+```
+
+Then launch the interactive interface:
+
+```sh
+nxtupdate
+```

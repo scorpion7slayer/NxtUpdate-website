@@ -1,0 +1,36 @@
+---
+title: Package managers
+description: Learn which package sources NxtUpdate detects and how each one is handled.
+---
+
+NxtUpdate detects package managers that are already installed. Missing managers
+are ignored.
+
+| Source | Command | Notes |
+| --- | --- | --- |
+| Homebrew | `brew` | Updates formulae and casks. |
+| Node.js | `npm`, `pnpm`, `yarn`, `bun` | Uses the active package manager. |
+| Python | `pip3`, `pip` | Skips virtual environments and externally managed environments. |
+| Rust | `cargo` | Requires `cargo-install-update`. |
+| macOS | `softwareupdate` | Uses sudo unless `--no-sudo` is set. |
+
+## Cargo support
+
+Cargo cannot list outdated installed binaries by itself. Install
+[`cargo-install-update`](https://github.com/nabijaczleweli/cargo-update) once:
+
+```sh
+cargo install cargo-install-update
+```
+
+## Python environments
+
+NxtUpdate avoids modifying externally managed Python installations. If a pip
+environment cannot be updated safely, it is shown as skipped instead of using
+`--break-system-packages`.
+
+## macOS updates
+
+System updates use the built-in `softwareupdate` command and may ask for your
+administrator password. Use `--no-sudo` to leave them out of a TUI or CLI
+update run.

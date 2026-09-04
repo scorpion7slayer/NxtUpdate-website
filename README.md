@@ -17,3 +17,12 @@ bunx html-validate@latest index.html docs.html
 ```
 
 The site uses plain HTML, CSS, and JavaScript. It has no build step.
+
+## Preview the Docs7 documentation
+
+```sh
+bunx @upstash/docs7@latest dev ./docs
+```
+
+The Docs7 source lives in [`docs/`](docs/). The static website and the Docs7
+documentation are kept separate so either one can be published independently.

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "NxtUpdate",
+  "description": "Install and use NxtUpdate, the universal package updater for macOS.",
+  "colors": {
+    "primary": "#c45e22",
+    "light": "#e07a3a",
+    "dark": "#a84b1a"
+  },
+  "favicon": "favicon.svg",
+  "navigation": {
+    "groups": [
+      {
+        "group": "Get started",
+        "pages": ["index", "installation"]
+      },
+      {
+        "group": "Use NxtUpdate",
+        "pages": ["usage", "package-managers"]
+      }
+    ]
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "npm",
+        "href": "https://www.npmjs.com/package/nxtupdate"
+      }
+    ],
+    "primary": {
+      "type": "github",
+      "href": "https://github.com/scorpion7slayer/NxtUpdate"
+    }
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/scorpion7slayer/NxtUpdate",
+      "website": "https://github.com/scorpion7slayer/NxtUpdate-website"
+    }
+  }
+}

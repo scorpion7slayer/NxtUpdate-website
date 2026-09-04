@@ -1,0 +1,42 @@
+---
+title: Introduction
+description: Update Homebrew, Node.js, Python, Cargo, and macOS from one command.
+---
+
+NxtUpdate is a universal package updater for macOS. It detects the package
+managers installed on your Mac and lets you review and apply available updates
+from an interactive terminal interface or direct CLI commands.
+
+## Install
+
+NxtUpdate requires macOS and [Bun 1.0 or later](https://bun.sh).
+
+```sh
+bun add -g nxtupdate
+```
+
+You can also install it from [npm](https://www.npmjs.com/package/nxtupdate):
+
+```sh
+npm install -g nxtupdate
+```
+
+## Start the interface
+
+```sh
+nxtupdate
+```
+
+NxtUpdate scans the available package managers, shows outdated packages, and
+lets you choose exactly what to update or uninstall.
+
+## Supported sources
+
+- Homebrew formulae and casks
+- npm, pnpm, Yarn, and Bun global packages
+- Python packages through pip
+- Rust binaries installed with Cargo
+- macOS system updates
+
+The source code is available on
+[GitHub](https://github.com/scorpion7slayer/NxtUpdate) under the MIT license.

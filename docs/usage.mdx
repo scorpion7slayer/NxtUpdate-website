@@ -1,0 +1,49 @@
+---
+title: Commands and options
+description: Run the NxtUpdate TUI or use direct commands for scans, lists, and updates.
+---
+
+## Interactive interface
+
+Running NxtUpdate without arguments opens the terminal interface:
+
+```sh
+nxtupdate
+```
+
+You can also launch it explicitly:
+
+```sh
+nxtupdate tui
+```
+
+Use the arrow keys to move, `Enter` to confirm, and `Ctrl+C` to quit.
+
+## Commands
+
+```sh
+# Detect installed package managers
+nxtupdate scan
+
+# List outdated packages
+nxtupdate list
+
+# Update available packages
+nxtupdate update
+
+# Limit a list or update to one manager
+nxtupdate list --only homebrew
+nxtupdate update --only npm
+```
+
+## Options
+
+| Option | Commands | Effect |
+| --- | --- | --- |
+| `-o, --only <manager>` | `list`, `update` | Target one package manager. |
+| `-d, --dry-run` | `tui`, `update` | Preview changes without applying them. |
+| `--no-sudo` | `tui`, `update` | Skip macOS updates that require sudo. |
+| `-v, --verbose` | `update` | Show detailed update output. |
+| `-y, --yes` | `list`, `update` | Skip interactive confirmation or selection. |
+
+Run `nxtupdate <command> --help` to see the options accepted by one command.
