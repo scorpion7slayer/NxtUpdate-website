@@ -1,4 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="NxtUpdate">
-  <rect width="32" height="32" rx="6" fill="#1b2430"/>
-  <text x="16" y="22" text-anchor="middle" font-family="ui-monospace, monospace" font-size="16" font-weight="600" fill="#e07a3a">N</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title description">
+  <title id="title">NxtUpdate package refresh favicon</title>
+  <desc id="description">A compact macOS terminal containing a package surrounded by an update arrow.</desc>
+
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="#1b2430"/>
+  <rect x="6" y="6" width="116" height="116" rx="26" fill="none" stroke="#3a424c" stroke-width="4"/>
+
+  <rect x="17" y="19" width="94" height="92" rx="16" fill="#10151b" stroke="#5b6574" stroke-width="3"/>
+  <path d="M18.5 43.5h91" stroke="#3a424c" stroke-width="3"/>
+  <circle cx="31" cy="32" r="4.5" fill="#d96959"/>
+  <circle cx="44" cy="32" r="4.5" fill="#d9aa3b"/>
+  <circle cx="57" cy="32" r="4.5" fill="#68a66d"/>
+
+  <path
+    d="M94 88A31 31 0 1 1 86 53"
+    fill="none"
+    stroke="#e07a3a"
+    stroke-linecap="round"
+    stroke-width="9"
+  />
+  <path d="M99 65 80 59 92 46Z" fill="#e07a3a"/>
+
+  <path d="m64 59 18 9-18 9-18-9 18-9Z" fill="#9bcbbb"/>
+  <path d="m46 68 18 9v22l-18-9V68Z" fill="#47786d"/>
+  <path d="m82 68-18 9v22l18-9V68Z" fill="#2f6f63"/>
+  <path d="m55 63.5 18 9" fill="none" stroke="#d5ece5" stroke-linecap="round" stroke-width="3"/>
 </svg>
