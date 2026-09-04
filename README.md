@@ -1,22 +1,25 @@
 # NxtUpdate website
 
-Static website and documentation for [NxtUpdate](https://github.com/scorpion7slayer/NxtUpdate), a universal package updater for macOS.
+Static website and Docs7 documentation for [NxtUpdate](https://github.com/scorpion7slayer/NxtUpdate), a universal package updater for macOS.
 
 ## Run locally
 
 ```sh
-bunx serve .
+bun install
+bun run dev
 ```
 
-Then open the local address printed in the terminal.
+The Cloudflare Worker serves the landing page from `public/` and reverse-proxies
+`/docs` and `/docs/*` to Docs7. Every other request stays on the static site.
 
 ## Validate
 
 ```sh
-bunx html-validate@latest index.html
+bun run check
 ```
 
-The site uses plain HTML, CSS, and JavaScript. It has no build step.
+This runs the Worker tests, TypeScript checks, HTML validation, and a dry-run
+Cloudflare deployment.
 
 ## Preview the Docs7 documentation
 
