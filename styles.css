@@ -177,52 +177,6 @@ button:focus-visible {
   color: var(--accent);
 }
 
-.docs-shell {
-  display: grid;
-  grid-template-columns: 168px 1fr;
-  align-items: start;
-}
-
-.toc {
-  position: sticky;
-  top: 0;
-  padding: 28px 12px 36px 20px;
-  border-right: 1px solid var(--line);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-family: var(--mono);
-  font-size: 12px;
-}
-
-.toc-label {
-  margin: 0 0 6px;
-  color: var(--muted);
-}
-
-.toc a {
-  color: var(--ink);
-  text-decoration: none;
-}
-
-.toc a:hover {
-  color: var(--accent);
-}
-
-.docs-head {
-  margin-bottom: 8px;
-}
-
-.docs > section {
-  margin-top: 32px;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
-}
-
-.docs h2 {
-  margin-top: 0;
-}
-
 .term {
   padding: 28px 32px 36px;
 }
@@ -285,13 +239,6 @@ h2 {
   font-weight: 600;
 }
 
-h3 {
-  margin: 28px 0 8px;
-  font-family: var(--mono);
-  font-size: 0.92rem;
-  font-weight: 600;
-}
-
 .note,
 .block p {
   margin: 0 0 14px;
@@ -348,73 +295,6 @@ h3 {
   font-size: 13px;
 }
 
-pre {
-  margin: 0 0 8px;
-  padding: 14px 16px;
-  overflow-x: auto;
-  border: 1px solid var(--line);
-  background: color-mix(in srgb, var(--paper) 55%, var(--window));
-  font-family: var(--mono);
-  font-size: 13px;
-  line-height: 1.7;
-}
-
-pre code {
-  font-size: inherit;
-}
-
-.defs {
-  margin: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px 28px;
-}
-
-.defs dt {
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.defs dd {
-  margin: 4px 0 0;
-  color: var(--muted);
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-}
-
-.table-scroll {
-  overflow-x: auto;
-}
-
-.table-scroll:focus-visible {
-  outline: 2px solid var(--focus);
-  outline-offset: 3px;
-}
-
-td {
-  overflow-wrap: anywhere;
-}
-
-th,
-td {
-  text-align: left;
-  padding: 10px 8px 10px 0;
-  vertical-align: top;
-  border-bottom: 1px solid var(--line);
-}
-
-th {
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--muted);
-}
-
 .foot {
   margin-top: 44px;
   padding-top: 18px;
@@ -456,34 +336,7 @@ th {
     grid-template-columns: 1fr;
   }
 
-  .defs {
-    grid-template-columns: 1fr;
-  }
-
   .copy {
     justify-self: start;
-  }
-
-  .docs-shell {
-    grid-template-columns: 1fr;
-  }
-
-  .toc {
-    position: static;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px 14px;
-    border-right: none;
-    border-bottom: 1px solid var(--line);
-    padding: 16px;
-  }
-
-  .toc-label {
-    width: 100%;
-    margin: 0;
-  }
-
-  .table-scroll table {
-    min-width: 620px;
   }
 }
