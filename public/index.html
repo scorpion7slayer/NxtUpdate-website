@@ -8,6 +8,14 @@
       name="description"
       content="NxtUpdate detects Homebrew, npm, pip, Cargo, and macOS system updates, then updates them in one command."
     >
+    <link rel="canonical" href="https://nxtupdate.nxtaigen.com/">
+    <meta property="og:title" content="NxtUpdate - universal package updater for macOS">
+    <meta
+      property="og:description"
+      content="NxtUpdate detects Homebrew, npm, pip, Cargo, and macOS system updates, then updates them in one command."
+    >
+    <meta property="og:url" content="https://nxtupdate.nxtaigen.com/">
+    <meta property="og:type" content="website">
     <meta name="theme-color" content="#22272e">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -48,6 +56,20 @@
               One command finds Homebrew, npm, pip, Cargo, and macOS, then
               updates them.
             </p>
+            <p>
+              NxtUpdate is a universal package updater for macOS. It detects
+              the package managers already installed on your Mac, shows what is
+              outdated, and lets you review and apply those updates from an
+              interactive terminal interface or from direct commands. Missing
+              managers are ignored. There is no config file: install the
+              command and run it.
+            </p>
+            <p class="links">
+              <a href="#features">What it does</a>
+              <a href="#example">Example output</a>
+              <a href="#faq">Questions</a>
+              <a href="/docs">Commands, flags, and managers</a>
+            </p>
           </section>
 
           <section class="block" id="install" aria-labelledby="install-title">
@@ -55,6 +77,13 @@
             <p class="note">
               macOS only. Runtime required:
               <a href="https://bun.sh">Bun 1.0+</a>.
+            </p>
+            <p>
+              Both install methods below still use Bun as the runtime, so Bun
+              has to be on your <code>PATH</code> either way. If you have just
+              installed Bun, open a new terminal first. Then confirm the
+              command with <code>nxtupdate --version</code> and start the
+              interface with <code>nxtupdate</code>.
             </p>
 
             <div class="cmd-row">
@@ -101,12 +130,208 @@
             <p class="sr-only" id="copy-status" aria-live="polite"></p>
           </section>
 
+          <section class="block" id="features" aria-labelledby="features-title">
+            <h2 id="features-title">What it does</h2>
+            <p>
+              The same five sources are available from the terminal interface
+              and from the CLI. A source is included only when its command is
+              already installed.
+            </p>
+            <ul class="plain">
+              <li>
+                <p>
+                  <code>nxtupdate scan</code> detects Homebrew, Node, Python,
+                  Cargo, and macOS. Each hit is printed with its command.
+                  Anything that is not installed is listed at the end and left
+                  alone.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <code>nxtupdate list</code> checks for outdated packages.
+                  When more than one manager is present it asks which ones to
+                  include, unless you pass <code>--yes</code>.                   A current
+                  manager prints "up to date". A manager that cannot be
+                  updated safely is marked skipped, with the reason.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <code>nxtupdate update</code> scans first, then asks which
+                  managers to update unless you pass <code>--only</code> or
+                  <code>--yes</code>. <code>--dry-run</code> previews the work
+                  and does not modify anything. <code>--verbose</code> prints
+                  package names during the update. When nothing is outdated it
+                  reports that everything is already up to date.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <code>nxtupdate</code> with no arguments, or
+                  <code>nxtupdate tui</code>, opens the full-screen interface.
+                  It scans, then the main menu lets you update packages, view
+                  the outdated list, or uninstall. You choose the packages to
+                  update or remove, and the update screen shows progress for
+                  each manager. Arrow keys move, Enter confirms, and Ctrl+C
+                  quits. <code>--dry-run</code> and <code>--no-sudo</code> work
+                  on <code>tui</code> the same way they do on
+                  <code>update</code>.
+                </p>
+              </li>
+            </ul>
+            <p>
+              Homebrew updates formulae and casks. When you select individual
+              casks, they are upgraded with <code>brew upgrade --cask</code>,
+              separate from formulae. Node
+              covers global packages for the active manager among npm, pnpm,
+              Yarn, and Bun. Python uses <code>pip3</code> or <code>pip</code>.
+              It skips a virtual environment, and it skips an externally
+              managed environment instead of passing
+              <code>--break-system-packages</code>. Cargo can be detected from
+              the <code>cargo</code> command, but listing outdated installed
+              binaries requires
+              <a href="https://github.com/nabijaczleweli/cargo-update">cargo-install-update</a>.
+              Install that helper once with
+              <code>cargo install cargo-install-update</code>. macOS system
+              updates go through <code>softwareupdate</code> and may ask for
+              your administrator password. <code>--no-sudo</code> leaves those
+              updates out of a TUI or CLI run. System updates cannot be
+              uninstalled.
+            </p>
+            <p>
+              <code>--only</code> limits <code>list</code> and
+              <code>update</code> to one manager. It matches the manager name
+              or its command, for example <code>homebrew</code>,
+              <code>npm</code>, <code>pip</code>, <code>cargo</code>, or
+              <code>softwareupdate</code>. Run
+              <code>nxtupdate &lt;command&gt; --help</code> to see the options
+              accepted by one command. The full reference is in the
+              <a href="/docs">docs</a>.
+            </p>
+          </section>
+
+          <section class="block" id="example" aria-labelledby="example-title">
+            <h2 id="example-title">Example output</h2>
+            <p>
+              <code>nxtupdate scan</code> and <code>nxtupdate list</code> print
+              plain text. The session below shows the real messages for a Mac
+              where Homebrew, npm, pip, and <code>softwareupdate</code> are
+              installed, Cargo is not, and pip reports an externally managed
+              environment. The wget line is only an example of the
+              <code>name current → latest</code> format. Your package names
+              and versions come from the machine you run it on.
+            </p>
+            <pre class="sample"><code>user@macos:~$ nxtupdate scan
+
+🔍 Scanning for installed package managers...
+
+✔ Found 4 package manager(s):
+ · 🍺 Homebrew (brew)
+ · 📦 Node (npm) (node)
+ · 🐍 Python (pip) (pip3) — skipped: externally managed (PEP 668); use Homebrew, pipx, or a virtual environment
+ · 🍎 macOS System (softwareupdate)
+
+Not installed: Rust (Cargo)</code></pre>
+            <p>
+              <code>nxtupdate list --yes</code> skips the manager picker and
+              prints one block per manager. A skipped manager keeps the reason
+              from detection. The total line appears only when at least one
+              package is outdated.
+            </p>
+            <pre class="sample"><code>user@macos:~$ nxtupdate list --yes
+
+📋 Checking for outdated packages...
+
+🍺 Homebrew (1 outdated)
+ · wget 1.21.3 → 1.25.0
+
+📦 Node (npm) — up to date
+
+🐍 Python (pip) — skipped: externally managed (PEP 668); use Homebrew, pipx, or a virtual environment
+
+🍎 macOS System — up to date
+
+ Total: 1 outdated package(s)</code></pre>
+            <p>
+              A dry run uses the same scan, then stops before any upgrade.
+              <code>nxtupdate update --dry-run</code> prints "Dry run mode —
+              nothing will be modified", and finishes with "Dry run complete.
+              Run without --dry-run to apply updates." If the scan finds
+              nothing to do, the update command prints "Everything is already
+              up to date!"
+            </p>
+          </section>
+
+          <section class="block" id="faq" aria-labelledby="faq-title">
+            <h2 id="faq-title">Questions</h2>
+
+            <h3>Which computers can run it?</h3>
+            <p>
+              macOS only. The runtime is Bun 1.0 or later.
+              <code>npm install -g nxtupdate</code> and
+              <code>bun add -g nxtupdate</code> both need that runtime, because
+              the published package executes with Bun. After installing Bun,
+              open a new terminal so the updated <code>PATH</code> is loaded,
+              then run <code>nxtupdate --version</code>.
+            </p>
+
+            <h3>What if a package manager is missing?</h3>
+            <p>
+              It is ignored. <code>nxtupdate scan</code> prints the managers it
+              found and a "Not installed" line for the rest. NxtUpdate does not
+              install Homebrew, Node, Python, Cargo, or any other manager for
+              you.
+            </p>
+
+            <h3>Will it change a Python virtualenv or system Python?</h3>
+            <p>
+              No. Inside a virtual environment, pip is not used. If pip reports
+              an externally managed environment (PEP 668), Python is shown as
+              skipped and NxtUpdate will not modify it with
+              <code>--break-system-packages</code>. The skip text points to
+              Homebrew, pipx, or a virtual environment.
+            </p>
+
+            <h3>How do I update one manager, or preview first?</h3>
+            <p>
+              <code>nxtupdate list --only homebrew</code> and
+              <code>nxtupdate update --only npm</code> limit the run.
+              <code>--dry-run</code> on <code>update</code> or
+              <code>tui</code> shows what would change and writes nothing.
+              <code>--no-sudo</code> skips macOS updates that need an
+              administrator password. <code>--yes</code> skips confirmation
+              and the interactive manager picker. <code>--verbose</code> on
+              <code>update</code> prints the package names being updated.
+            </p>
+
+            <h3>Can packages be removed?</h3>
+            <p>
+              The terminal interface has an uninstall action. You review the
+              installed packages before anything is removed. Homebrew, Node,
+              Python, and Cargo can remove packages they installed. macOS
+              system updates cannot be uninstalled.
+            </p>
+
+            <h3>What does Cargo need beyond the cargo command?</h3>
+            <p>
+              Detection only needs <code>cargo</code> on your
+              <code>PATH</code>. Listing and updating installed binaries uses
+              <code>cargo-install-update</code>. Without that helper, Cargo
+              has nothing to list. Install it once:
+              <code>cargo install cargo-install-update</code>.
+            </p>
+          </section>
+
           <footer class="foot">
             <p>
               MIT, scorpion7slayer.
               <a href="https://github.com/scorpion7slayer/NxtUpdate" target="_blank" rel="noopener noreferrer">github</a>
               ·
               <a href="https://www.npmjs.com/package/nxtupdate" target="_blank" rel="noopener noreferrer">npm</a>
+              ·
+              <a href="https://nxtaigen.com/">nxtaigen.com</a>
+              ·
+              <a href="https://theo.nxtaigen.com/">theo.nxtaigen.com</a>
             </p>
           </footer>
         </main>

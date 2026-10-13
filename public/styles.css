@@ -239,6 +239,37 @@ h2 {
   font-weight: 600;
 }
 
+h3 {
+  margin: 18px 0 6px;
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.plain {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sample {
+  margin: 0 0 14px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper) 55%, var(--window));
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.sample code {
+  font-size: inherit;
+}
+
 .note,
 .block p {
   margin: 0 0 14px;
