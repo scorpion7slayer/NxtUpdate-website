@@ -13,7 +13,7 @@
     "groups": [
       {
         "group": "Get started",
-        "pages": ["index", "installation"]
+        "pages": ["index", "installation", "feature-requests"]
       },
       {
         "group": "Use NxtUpdate",
