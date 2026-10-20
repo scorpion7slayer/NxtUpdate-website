@@ -38,5 +38,8 @@
       "github": "https://github.com/scorpion7slayer/NxtUpdate",
       "website": "https://github.com/scorpion7slayer/NxtUpdate-website"
     }
+  },
+  "feedback": {
+    "thumbsRating": true
   }
 }
