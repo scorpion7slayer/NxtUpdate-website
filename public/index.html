@@ -16,6 +16,82 @@
     >
     <meta property="og:url" content="https://nxtupdate.nxtaigen.com/">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://nxtupdate.nxtaigen.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "NxtUpdate",
+        "operatingSystem": "macOS",
+        "applicationCategory": "DeveloperApplication",
+        "description": "NxtUpdate detects Homebrew, npm, pip, Cargo, and macOS system updates, then updates them in one command.",
+        "url": "https://nxtupdate.nxtaigen.com/",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Which computers can run it?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "macOS only. The runtime is Bun 1.0 or later. npm install -g nxtupdate and bun add -g nxtupdate both need that runtime, because the published package executes with Bun. After installing Bun, open a new terminal so the updated PATH is loaded, then run nxtupdate --version."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if a package manager is missing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is ignored. nxtupdate scan prints the managers it found and a \"Not installed\" line for the rest. NxtUpdate does not install Homebrew, Node, Python, Cargo, or any other manager for you."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will it change a Python virtualenv or system Python?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Inside a virtual environment, pip is not used. If pip reports an externally managed environment (PEP 668), Python is shown as skipped and NxtUpdate will not modify it with --break-system-packages. The skip text points to Homebrew, pipx, or a virtual environment."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I update one manager, or preview first?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "nxtupdate list --only homebrew and nxtupdate update --only npm limit the run. --dry-run on update or tui shows what would change and writes nothing. --no-sudo skips macOS updates that need an administrator password. --yes skips confirmation and the interactive manager picker. --verbose on update prints the package names being updated."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can packages be removed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The terminal interface has an uninstall action. You review the installed packages before anything is removed. Homebrew, Node, Python, and Cargo can remove packages they installed. macOS system updates cannot be uninstalled."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does Cargo need beyond the cargo command?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Detection only needs cargo on your PATH. Listing and updating installed binaries uses cargo-install-update. Without that helper, Cargo has nothing to list. Install it once: cargo install cargo-install-update."
+            }
+          }
+        ]
+      }
+    </script>
     <meta name="theme-color" content="#22272e">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.bunny.net">
